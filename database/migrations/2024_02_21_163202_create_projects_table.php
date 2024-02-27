@@ -22,6 +22,8 @@ return new class extends Migration
             $table->date('date_end')->nullable();
             $table->string('img')->nullable();
             $table->string('slug');
+            $table->unsignedBigInteger('type_id')->nullable(); // Aggiungi questa riga
+            $table->foreign('type_id')->references('id')->on('types'); // Aggiungi questa riga
             $table->timestamps();
         });
     }

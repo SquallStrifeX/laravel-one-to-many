@@ -17,6 +17,10 @@ protected $fillable = [
     'name', 'description', 'repository_link', 'date_start', 'date_end', 'img', 'slug'
 ];
 
+public function type()
+{
+    return $this->belongsTo(Type::class);
+}
 }
 
 
