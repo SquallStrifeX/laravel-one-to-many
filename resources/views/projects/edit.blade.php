@@ -41,6 +41,15 @@
             <label for="img">Immagine del Progetto (opzionale)</label>
             <input type="file" class="form-control-file" id="img" name="img">
         </div>
+        <select name="type_id" id="type_id">
+            <option value="" selected>Seleziona un tipo</option>
+            @foreach ($types as $type)
+                <option value="{{ $type->id }}" {{ $type->id == old('type_id', $project->type_id) ? 'selected' : '' }}>
+                    {{ $type->name }}
+                </option>
+            @endforeach
+        </select>
+
         <button type="submit" class="btn btn-primary">Aggiorna Progetto</button>
     </form>
 </div>

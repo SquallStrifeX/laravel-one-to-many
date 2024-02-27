@@ -14,11 +14,12 @@ class UpdateProjectRequest extends FormRequest
     }
 
     public function rules()
-    {
-        return [
-            'name' => 'required|string|max:255', // Regole di validazione simili a StoreProjectRequest
-            'description' => 'required|string', // Assicurati che le regole di validazione siano appropriate per l'aggiornamento
-            // Puoi inserire regole di validazione specifiche per l'aggiornamento se necessario
-        ];
-    }
+{
+    return [
+        'name' => 'required|string|max:255',
+        'description' => 'required|string',
+        // altri campi...
+        'type_id' => 'nullable|exists:types,id', // Assicurati che questa riga sia presente
+    ];
+}
 }

@@ -26,7 +26,19 @@
                         No images
                     </div>
                 @endif
-
+           {{-- TYPE --}}
+           <p class="project-p"> Project type:
+        </p>
+        @if ($project->type_id == null)
+            <p class="project-properties">
+                Nessun tipo associato.
+            </p>
+        @else
+            <p class="project-properties">
+                {{ $project->type->name }}
+            </p>
+        @endif
+    </div>
             <a href="{{ url()->previous() }}" class="btn btn-primary mt-3">Indietro</a>
         </div>
     </div>

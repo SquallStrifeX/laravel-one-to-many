@@ -45,6 +45,19 @@
             <label for="slug">Slug</label>
             <input type="text" class="form-control" id="slug" name="slug" placeholder="Inserisci uno slug unico per il progetto" required value="{{ old('slug') }}">
         </div>
+         {{-- PROJECT TYPE --}}
+         <div class="col-12 my-3">
+            <label for="type_id">Type:</label>
+            <select name="type_id" id="type_id">
+
+                <option value="" selected> Seleziona un tipo</option>
+                @foreach ($types as $type)
+                    <option value="{{ $type->id }}" @selected($type->id == old('type_id'))>
+                        {{ $type->name }}</option>
+                @endforeach
+
+            </select>
+        </div>
         <button type="submit" class="btn btn-primary">Crea Progetto</button>
     </form>
 </div>
